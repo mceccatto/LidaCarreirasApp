@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/listaVagasFragment">
+
+    <fragment
+        android:id="@+id/listaVagasFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.vaga.VagasFragment"
+        android:label="Vagas Disponíveis"
+        tools:layout="@layout/fragment_list_vagas" >
+        <action
+            android:id="@+id/action_detalhe_vaga"
+            app:destination="@id/vagaDetalheFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vagaDetalheFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.vaga.VagaDetalheFragment"
+        android:label="Detalhes da Vaga"
+        tools:layout="@layout/fragment_vaga_detalhe" />
+
+    <fragment
+        android:id="@+id/cadastroVagaFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.vaga.VagaFragment"
+        android:label="Nova Vaga"
+        tools:layout="@layout/fragment_vaga" />
+
+    <fragment
+        android:id="@+id/listarCandidatosFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.candidato.CandidatosFragment"
+        android:label="Candidatos Registrados"
+        tools:layout="@layout/fragment_list_candidatos" >
+        <action
+            android:id="@+id/action_candidato_dados"
+            app:destination="@id/candidatoDetalheFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/candidatoDetalheFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.candidato.CandidatoDetalheFragment"
+        android:label="Detalhes do Candidato"
+        tools:layout="@layout/fragment_candidato_detalhe" />
+
+    <fragment
+        android:id="@+id/cadastroCandidatoFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.candidato.CandidatoFragment"
+        android:label="Novo Candidato"
+        tools:layout="@layout/fragment_candidato" />
+
+    <fragment
+        android:id="@+id/cadastroEmpresaFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.empresa.EmpresaFragment"
+        android:label="Nova Empresa"
+        tools:layout="@layout/fragment_empresa" />
+
+    <fragment
+        android:id="@+id/listarEmpresasFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.empresa.EmpresasFragment"
+        android:label="Empresas Registradas"
+        tools:layout="@layout/fragment_list_empresas" >
+        <action
+            android:id="@+id/action_empresa_dados"
+            app:destination="@id/empresaDetalheFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/empresaDetalheFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.empresa.EmpresaDetalheFragment"
+        android:label="Detalhes da Empresa"
+        tools:layout="@layout/fragment_empresa_detalhe" />
+</navigation>
