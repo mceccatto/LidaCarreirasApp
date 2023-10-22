@@ -22,5 +22,11 @@
         <item
             android:id="@+id/listarEmpresasFragment"
             android:title="Listar Empresas" />
+        <item
+            android:id="@+id/cadastroExperienciaFragment"
+            android:title="Cadastrar Experiencias" />
+        <item
+            android:id="@+id/listarExperienciasFragment"
+            android:title="Listar Experiencias" />
     </group>
 </menu>

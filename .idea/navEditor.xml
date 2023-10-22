@@ -32,6 +32,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="cadastroExperienciaFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1078" />
+                            <option name="y" value="834" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="cadastroVagaFragment">
                     <value>
                       <LayoutPositions>
@@ -63,6 +75,18 @@
                           <Point>
                             <option name="x" value="-516" />
                             <option name="y" value="162" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="experienciaDetalheFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-510" />
+                            <option name="y" value="832" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -117,6 +141,27 @@
                           <Point>
                             <option name="x" value="-819" />
                             <option name="y" value="162" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_empresa_dados">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="listarExperienciasFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-814" />
+                            <option name="y" value="832" />
                           </Point>
                         </option>
                         <option name="myPositions">

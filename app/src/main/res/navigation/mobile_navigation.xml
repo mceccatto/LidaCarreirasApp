@@ -70,4 +70,26 @@
         android:name="br.dev.codelabs.lidacarreiras.ui.empresa.EmpresaDetalheFragment"
         android:label="Detalhes da Empresa"
         tools:layout="@layout/fragment_empresa_detalhe" />
+
+    <fragment
+        android:id="@+id/cadastroExperienciaFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.experiencia.ExperienciaFragment"
+        android:label="Nova Experiência"
+        tools:layout="@layout/fragment_experiencia" />
+
+    <fragment
+        android:id="@+id/listarExperienciasFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.experiencia.ExperienciasFragment"
+        android:label="Experiências Registradas"
+        tools:layout="@layout/fragment_list_experiencias" >
+        <action
+            android:id="@+id/action_experiencia_dados"
+            app:destination="@id/experienciaDetalheFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/experienciaDetalheFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.experiencia.ExperienciaDetalheFragment"
+        android:label="Detalhes da Experiência"
+        tools:layout="@layout/fragment_experiencia_detalhe" />
 </navigation>
