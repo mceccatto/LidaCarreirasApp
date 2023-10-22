@@ -10,11 +10,12 @@ class VagaRepositorySQLite @Inject constructor(val vagaDao: VagaDao) : VagaRepos
         get() = vagaDao.listar()
 
     override suspend fun salvar(vaga: Vaga) {
-        if (vaga.id == ""){
-            vagaDao.inserir(vaga)
-        } else {
-            vagaDao.atualizar(vaga)
-        }
+        vagaDao.inserir(vaga)
+//        if (vaga.id == ""){
+//            vagaDao.inserir(vaga)
+//        } else {
+//            vagaDao.atualizar(vaga)
+//        }
     }
 
     override suspend fun excluir(vaga: Vaga) {

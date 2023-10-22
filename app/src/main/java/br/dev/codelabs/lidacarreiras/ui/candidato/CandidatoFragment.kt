@@ -21,14 +21,9 @@ class CandidatoFragment : Fragment() {
 
         val binding = FragmentCandidatoBinding.inflate(layoutInflater)
 
-        var candidato = viewModel.candidato
+        viewModel.novo()
 
-        binding.inputCpf.setText(candidato.cpf)
-        binding.inputNome.setText(candidato.nome)
-        binding.inputDataNascimento.setText(candidato.dataNascimento)
-        binding.inputEmail.setText(candidato.email)
-        binding.inputSenha.setText(candidato.senha)
-        binding.inputImagem.setText(candidato.imagem)
+        binding.inputImagem.setText("semfoto.jpg")
         binding.btnSalvar.setOnClickListener {
             try {
                 viewModel.candidato.cpf = binding.inputCpf.text.toString()

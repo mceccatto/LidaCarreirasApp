@@ -21,15 +21,9 @@ class EmpresaFragment : Fragment() {
 
         val binding = FragmentEmpresaBinding.inflate(layoutInflater)
 
-        var empresa = viewModel.empresa
+        viewModel.novo()
 
-        binding.inputCnpj.setText(empresa.cnpj)
-        binding.inputRasaoSocial.setText(empresa.rasaoSocial)
-        binding.inputNomeFantasia.setText(empresa.nomeFantasia)
-        binding.inputTelefone.setText(empresa.telefone)
-        binding.inputEmail.setText(empresa.email)
-        binding.inputSenha.setText(empresa.senha)
-        binding.inputImagem.setText(empresa.imagem)
+        binding.inputImagem.setText("semfoto.jpg")
         binding.btnSalvar.setOnClickListener {
             try {
                 viewModel.empresa.cnpj = binding.inputCnpj.text.toString()

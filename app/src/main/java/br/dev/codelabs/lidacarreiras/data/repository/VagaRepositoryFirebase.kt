@@ -39,9 +39,15 @@ class VagaRepositoryFirebase @Inject constructor(@Named("vagas") private val vag
             vaga.id = doc.id
             vaga.docId = doc.id
             doc.set(vaga)
-        } else {
-            vagasRef.document(vaga.docId).set(vaga)
         }
+//        if (vaga.docId.isNullOrEmpty()) {
+//            var doc = vagasRef.document()
+//            vaga.id = doc.id
+//            vaga.docId = doc.id
+//            doc.set(vaga)
+//        } else {
+//            vagasRef.document(vaga.docId).set(vaga)
+//        }
     }
 
     override suspend fun excluir(vaga: Vaga) {

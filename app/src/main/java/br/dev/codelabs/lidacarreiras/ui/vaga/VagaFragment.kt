@@ -21,11 +21,9 @@ class VagaFragment : Fragment() {
 
         val binding = FragmentVagaBinding.inflate(layoutInflater)
 
-        var vaga = viewModel.vaga
+        viewModel.novo()
 
-        binding.inputTitulo.setText(vaga.titulo)
-        binding.inputDescricao.setText(vaga.descricao)
-        binding.inputImagem.setText(vaga.imagem)
+        binding.inputImagem.setText("semfoto.jpg")
         binding.btnSalvar.setOnClickListener {
             try {
                 viewModel.vaga.empresaId = "87gyhA87SGa87gsA8G"
