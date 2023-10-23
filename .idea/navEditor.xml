@@ -20,6 +20,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="cadastroCertificadoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-1075" />
+                            <option name="y" value="1179" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="cadastroEmpresaFragment">
                     <value>
                       <LayoutPositions>
@@ -63,6 +75,18 @@
                           <Point>
                             <option name="x" value="-514" />
                             <option name="y" value="484" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="certificadoDetalheFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-507" />
+                            <option name="y" value="1180" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -134,6 +158,27 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="listarCertificadosFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-813" />
+                            <option name="y" value="1180" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_certificado_dados">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="listarEmpresasFragment">
                     <value>
                       <LayoutPositions>
@@ -166,7 +211,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_empresa_dados">
+                            <entry key="action_experiencia_dados">
                               <value>
                                 <LayoutPositions />
                               </value>

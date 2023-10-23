@@ -92,4 +92,26 @@
         android:name="br.dev.codelabs.lidacarreiras.ui.experiencia.ExperienciaDetalheFragment"
         android:label="Detalhes da Experiência"
         tools:layout="@layout/fragment_experiencia_detalhe" />
+
+    <fragment
+        android:id="@+id/cadastroCertificadoFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.certificado.CertificadoFragment"
+        android:label="Novo Certificado"
+        tools:layout="@layout/fragment_certificado" />
+
+    <fragment
+        android:id="@+id/listarCertificadosFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.certificado.CertificadosFragment"
+        android:label="Certificados Registrados"
+        tools:layout="@layout/fragment_list_certificados" >
+        <action
+            android:id="@+id/action_certificado_dados"
+            app:destination="@id/certificadoDetalheFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/certificadoDetalheFragment"
+        android:name="br.dev.codelabs.lidacarreiras.ui.certificado.CertificadoDetalheFragment"
+        android:label="Detalhes do Certificado"
+        tools:layout="@layout/fragment_certificado_detalhe" />
 </navigation>

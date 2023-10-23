@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import br.dev.codelabs.lidacarreiras.data.*
 import br.dev.codelabs.lidacarreiras.data.dao.CandidatoDao
+import br.dev.codelabs.lidacarreiras.data.dao.CertificadoDao
 import br.dev.codelabs.lidacarreiras.data.dao.CurtidaDao
 import br.dev.codelabs.lidacarreiras.data.dao.EmpresaDao
 import br.dev.codelabs.lidacarreiras.data.dao.ExperienciaDao
@@ -15,6 +16,9 @@ import br.dev.codelabs.lidacarreiras.data.database.BancoSQLite
 import br.dev.codelabs.lidacarreiras.data.repository.CandidatoRepository
 import br.dev.codelabs.lidacarreiras.data.repository.CandidatoRepositoryFirebase
 import br.dev.codelabs.lidacarreiras.data.repository.CandidatoRepositorySQLite
+import br.dev.codelabs.lidacarreiras.data.repository.CertificadoRepository
+import br.dev.codelabs.lidacarreiras.data.repository.CertificadoRepositoryFirebase
+import br.dev.codelabs.lidacarreiras.data.repository.CertificadoRepositorySQLite
 import br.dev.codelabs.lidacarreiras.data.repository.CurtidaRepository
 import br.dev.codelabs.lidacarreiras.data.repository.CurtidaRepositoryFirebase
 import br.dev.codelabs.lidacarreiras.data.repository.CurtidaRepositorySQLite
@@ -74,6 +78,42 @@ class LidaCarreirasApp : Application() {
     fun provideCandidatosRef() : CollectionReference {
         return Firebase.firestore.collection("candidatos")
     }
+
+
+
+
+
+
+
+
+    @Provides
+    fun provideCertificadoReposity(certificadoDao: CertificadoDao) : CertificadoRepositorySQLite {
+        return CertificadoRepositorySQLite(certificadoDao)
+    }
+
+    @Provides
+    fun provideCertificadoDao(banco: BancoSQLite) : CertificadoDao {
+        return banco.certificadoDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCertificadoRepositoryFirebase(@Named("certificados") certificadosRef: CollectionReference) : CertificadoRepository {
+        return CertificadoRepositoryFirebase(certificadosRef)
+    }
+
+    @Provides
+    @Singleton
+    @Named("certificados")
+    fun provideCertificadosRef() : CollectionReference {
+        return Firebase.firestore.collection("certificados")
+    }
+
+
+
+
+
+
 
     @Provides
     fun provideCurtidaReposity(curtidaDao: CurtidaDao) : CurtidaRepositorySQLite {

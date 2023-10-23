@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import br.dev.codelabs.lidacarreiras.data.dao.CandidatoDao
+import br.dev.codelabs.lidacarreiras.data.dao.CertificadoDao
 import br.dev.codelabs.lidacarreiras.data.dao.CurtidaDao
 import br.dev.codelabs.lidacarreiras.data.dao.EmpresaDao
 import br.dev.codelabs.lidacarreiras.data.dao.ExperienciaDao
@@ -13,6 +14,7 @@ import br.dev.codelabs.lidacarreiras.data.dao.MensagemDao
 import br.dev.codelabs.lidacarreiras.data.dao.SeguirDao
 import br.dev.codelabs.lidacarreiras.data.dao.VagaDao
 import br.dev.codelabs.lidacarreiras.data.model.Candidato
+import br.dev.codelabs.lidacarreiras.data.model.Certificado
 import br.dev.codelabs.lidacarreiras.data.model.Curtida
 import br.dev.codelabs.lidacarreiras.data.model.Empresa
 import br.dev.codelabs.lidacarreiras.data.model.Experiencia
@@ -22,9 +24,10 @@ import br.dev.codelabs.lidacarreiras.data.model.Seguir
 import br.dev.codelabs.lidacarreiras.data.model.Vaga
 import kotlin.concurrent.Volatile
 
-@Database(entities = [Candidato::class, Curtida::class, Empresa::class, Experiencia::class, Formacao::class, Mensagem::class, Seguir::class, Vaga::class], version = 1)
+@Database(entities = [Candidato::class, Certificado::class, Curtida::class, Empresa::class, Experiencia::class, Formacao::class, Mensagem::class, Seguir::class, Vaga::class], version = 1)
 abstract class BancoSQLite : RoomDatabase() {
     abstract fun candidatoDao(): CandidatoDao
+    abstract fun certificadoDao(): CertificadoDao
     abstract fun curtidaDao(): CurtidaDao
     abstract fun empresaDao(): EmpresaDao
     abstract fun experienciaDao(): ExperienciaDao

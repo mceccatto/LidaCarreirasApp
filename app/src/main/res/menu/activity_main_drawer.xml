@@ -28,5 +28,11 @@
         <item
             android:id="@+id/listarExperienciasFragment"
             android:title="Listar Experiencias" />
+        <item
+            android:id="@+id/cadastroCertificadoFragment"
+            android:title="Cadastrar Certificados" />
+        <item
+            android:id="@+id/listarCertificadosFragment"
+            android:title="Listar Certificados" />
     </group>
 </menu>
