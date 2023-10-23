@@ -1,7 +1,9 @@
 package br.dev.codelabs.lidacarreiras.ui.certificado
 
-import android.R.attr.bitmap
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +17,9 @@ import androidx.navigation.fragment.findNavController
 import br.dev.codelabs.lidacarreiras.databinding.FragmentCertificadoBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
+import java.io.FileNotFoundException
 import java.time.LocalDateTime
+import android.util.Base64
 
 
 @AndroidEntryPoint
@@ -30,15 +34,14 @@ class CertificadoFragment : Fragment() {
 
         val candidatoId = "3cG9Og9eBu0ndyYfHJH7"
 
-        var base64: String = ""
+        var base64: String? = ""
 
         val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
             val galleryUri = it
             try {
                 binding.inputImagem.setImageURI(galleryUri)
-
-
-
+                var imagem: Bitmap? = decodeUriAsBitmap(requireContext(), galleryUri)
+                base64 = imagem?.let { it1 -> bitmapToBase64(it1) }
                 binding.btnSalvar.visibility = View.VISIBLE
             } catch (e:Exception) {
                 e.printStackTrace()
@@ -53,12 +56,49 @@ class CertificadoFragment : Fragment() {
                 viewModel.certificado.candidatoId = candidatoId
                 viewModel.certificado.instituicao = binding.inputInstituicao.text.toString()
                 viewModel.certificado.titulo = binding.inputTitulo.text.toString()
-                //viewModel.certificado.arquivo = binding.inputImagem.text.toString()
+                viewModel.certificado.arquivo = base64.toString()
                 viewModel.certificado.dataCadastro = LocalDateTime.now().toString()
             } catch (e: Exception){}
             viewModel.salvar()
             findNavController().popBackStack()
         }
         return binding.root
+    }
+
+    fun decodeUriAsBitmap(context: Context, uri: Uri?): Bitmap? {
+        var bitmap: Bitmap? = null
+        bitmap = try {
+            BitmapFactory.decodeStream(
+                uri?.let {
+                    context
+                        .getContentResolver().openInputStream(it)
+                }
+            )
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+            return null
+        }
+        return bitmap
+    }
+
+//    fun decodeUriAsBitmap(context: Context, uri: Uri?): Bitmap? {
+//        var bitmap: Bitmap? = null
+//        bitmap = try {
+//            BitmapFactory.decodeStream(
+//                context
+//                    .getContentResolver().openInputStream(uri)
+//            )
+//        } catch (e: FileNotFoundException) {
+//            e.printStackTrace()
+//            return null
+//        }
+//        return bitmap
+//    }
+
+    fun bitmapToBase64(bitmap: Bitmap): String? {
+        val bytes = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes)
+        val byteArr = bytes.toByteArray()
+        return Base64.encodeToString(byteArr, Base64.DEFAULT)
     }
 }

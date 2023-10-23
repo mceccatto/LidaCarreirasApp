@@ -13,6 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CurtidaViewModel @Inject constructor(val repository: CurtidaRepository) : ViewModel() {
     var curtida: Curtida = Curtida()
+    var vagaId: String = ""
 
     private var _curtidas = MutableStateFlow(listOf<Curtida>())
 
