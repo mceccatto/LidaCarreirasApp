@@ -1,17 +1,22 @@
 package br.dev.codelabs.lidacarreiras.ui.certificado
 
+import android.R.attr.bitmap
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import br.dev.codelabs.lidacarreiras.databinding.FragmentCertificadoBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.ByteArrayOutputStream
 import java.time.LocalDateTime
+
 
 @AndroidEntryPoint
 class CertificadoFragment : Fragment() {
@@ -25,6 +30,24 @@ class CertificadoFragment : Fragment() {
 
         val candidatoId = "3cG9Og9eBu0ndyYfHJH7"
 
+        var base64: String = ""
+
+        val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
+            val galleryUri = it
+            try {
+                binding.inputImagem.setImageURI(galleryUri)
+
+
+
+                binding.btnSalvar.visibility = View.VISIBLE
+            } catch (e:Exception) {
+                e.printStackTrace()
+            }
+        }
+
+        binding.btnAnexar.setOnClickListener {
+            galleryLauncher.launch("image/*")
+        }
         binding.btnSalvar.setOnClickListener {
             try {
                 viewModel.certificado.candidatoId = candidatoId

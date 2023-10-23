@@ -41,7 +41,7 @@
         android:textSize="25sp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/inputImagem"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="10dp"
