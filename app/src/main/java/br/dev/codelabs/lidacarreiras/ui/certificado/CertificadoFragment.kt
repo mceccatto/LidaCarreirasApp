@@ -81,20 +81,6 @@ class CertificadoFragment : Fragment() {
         return bitmap
     }
 
-//    fun decodeUriAsBitmap(context: Context, uri: Uri?): Bitmap? {
-//        var bitmap: Bitmap? = null
-//        bitmap = try {
-//            BitmapFactory.decodeStream(
-//                context
-//                    .getContentResolver().openInputStream(uri)
-//            )
-//        } catch (e: FileNotFoundException) {
-//            e.printStackTrace()
-//            return null
-//        }
-//        return bitmap
-//    }
-
     fun bitmapToBase64(bitmap: Bitmap): String? {
         val bytes = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, bytes)
