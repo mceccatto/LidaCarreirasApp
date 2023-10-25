@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,6 @@ import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.time.LocalDateTime
 import android.util.Base64
-
 
 @AndroidEntryPoint
 class CertificadoFragment : Fragment() {
@@ -52,6 +52,23 @@ class CertificadoFragment : Fragment() {
             galleryLauncher.launch("image/*")
         }
         binding.btnSalvar.setOnClickListener {
+            binding.inputImagem.animate().apply {
+                duration = 1000
+                alpha(.5f)
+                scaleXBy(.5f)
+                scaleYBy(.5f)
+                rotationXBy(360f)
+                translationYBy(200f)
+            }.withEndAction {
+                binding.inputImagem.animate().apply {
+                    duration = 1000
+                    alpha(1f)
+                    scaleXBy(-.5f)
+                    scaleYBy(-.5f)
+                    rotationXBy(360f)
+                    translationYBy(-200f)
+                }
+            }.start()
             try {
                 viewModel.certificado.candidatoId = candidatoId
                 viewModel.certificado.instituicao = binding.inputInstituicao.text.toString()
@@ -60,7 +77,10 @@ class CertificadoFragment : Fragment() {
                 viewModel.certificado.dataCadastro = LocalDateTime.now().toString()
             } catch (e: Exception){}
             viewModel.salvar()
-            findNavController().popBackStack()
+            Handler().postDelayed({
+                findNavController().popBackStack()
+            }, 2500)
+
         }
         return binding.root
     }
