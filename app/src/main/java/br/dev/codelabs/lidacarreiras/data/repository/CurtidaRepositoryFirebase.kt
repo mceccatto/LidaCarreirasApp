@@ -34,6 +34,10 @@ class CurtidaRepositoryFirebase @Inject constructor(@Named("curtidas") private v
         }
     }
 
+    override suspend fun buscaId(vagaId: String, candidatoId: String): Array<Curtida> {
+        return arrayOf<Curtida>()
+    }
+
     override suspend fun curtir(curtida: Curtida) {
         if(curtida.id.isNullOrEmpty()) {
             var doc = curtidasRef.document()

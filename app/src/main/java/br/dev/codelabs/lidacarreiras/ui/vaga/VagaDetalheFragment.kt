@@ -35,6 +35,11 @@ class VagaDetalheFragment : Fragment() {
 
         val candidatoId = "3cG9Og9eBu0ndyYfHJH7"
 
+        viewModelCurtida.vagaId = vaga.id
+        viewModelCurtida.candidatoId = candidatoId
+
+        var buscaSize: Int = viewModelCurtida.buscaId()
+
         binding.inputTitulo.setText(vaga.titulo)
         binding.inputDescricao.setText(vaga.descricao)
         Firebase.storage.getReference(vaga.imagem).downloadUrl.addOnSuccessListener { imageUrl ->

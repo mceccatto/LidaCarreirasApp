@@ -13,6 +13,9 @@ interface CurtidaDao {
     @Query("SELECT * FROM curtidas")
     fun listar(): Flow<List<Curtida>>
 
+    @Query("SELECT * FROM curtidas WHERE vagaId = :vagaId AND candidatoId = :candidatoId")
+    fun buscaId(vagaId: String, candidatoId: String): Array<Curtida>
+
     @Insert
     suspend fun inserir(curtida: Curtida)
 

@@ -9,6 +9,10 @@ class CurtidaRepositorySQLite @Inject constructor(val candidatoDao: CurtidaDao) 
     override val curtidas: Flow<List<Curtida>>
         get() = candidatoDao.listar()
 
+    override suspend fun buscaId(vagaId: String, candidatoId: String): Array<Curtida> {
+        return candidatoDao.buscaId(vagaId, candidatoId)
+    }
+
     override suspend fun curtir(curtida: Curtida) {
         candidatoDao.curtir(curtida)
     }

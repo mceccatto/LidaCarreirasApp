@@ -14,6 +14,7 @@ import javax.inject.Inject
 class CurtidaViewModel @Inject constructor(val repository: CurtidaRepository) : ViewModel() {
     var curtida: Curtida = Curtida()
     var vagaId: String = ""
+    var candidatoId: String = ""
 
     private var _curtidas = MutableStateFlow(listOf<Curtida>())
 
@@ -25,6 +26,10 @@ class CurtidaViewModel @Inject constructor(val repository: CurtidaRepository) : 
                 _curtidas.value = curtidas
             }
         }
+    }
+
+    fun buscaId() = viewModelScope.launch {
+        repository.buscaId(vagaId, candidatoId)
     }
 
     fun curtir() = viewModelScope.launch {
